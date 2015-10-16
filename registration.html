@@ -1,0 +1,63 @@
+<HTML>
+   
+    <HEAD>
+      
+		<TITLE>My first HTML document</TITLE>
+	    <meta charset="utf-8"/>
+	   
+	    <link href="css/style.css" rel="stylesheet" type="text\css"/>
+	   
+		<script type="text/javascript" src="js/registration.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.3.js"> </script>
+		
+	</HEAD>
+  
+	<BODY>
+		
+		<div class="dline color_block " align="center">
+						
+				<span><h1 class="textbig"> Registration</h1></span>
+			
+			<div class="row dline">
+				<span class="cell"><p align="right" class="textsmall"> Login:</p></span>
+				<span class="cell col"></span>
+				<span class="cell"><input type="text" id="login" name="login" /></span>
+			</div>
+		
+			<div class="row">
+				<span class="cell"><p align="right" class="textsmall"> Password:</p></span>
+				<span class="cell"></span>
+				<span class="cell"><input type="password" id="password" name="password" /></span>
+			</div>
+						
+			<div class="row" class="dline">
+				<span class="cell"> <p align="right" class="textsmall"> Name:</p></span>
+				<span class="cell"> </span>
+				<span class="cell"> <input type="text" id="name" name="name" /></span>
+			</div>
+			
+			<div class="row" class="dline">
+				<span class="cell"><p align="right" class="textsmall"> Country:</p></span>
+				<span class="cell"></span>
+				<span class="cell"><input type="text" id="country" name="country"/> </span>
+			</div>
+								
+			<div class="row">
+				<span class="cell"><p align="right" class="textsmall"> email:</p> </span>
+				<span class="cell"></span>
+				<span class="cell"><input type="text" id="email" name="email" /> </span>
+			</div>
+			
+			<div class="row">
+				<span class="cell" align="right"></span>
+				<span class="cell"></span>
+				<span class="cell" align="center" >
+					<button type="submit"  onclick="checkregistration($('#login').val(), $('#password').val(), $('#name').val(), $('#country').val(), $('#email').val());window.history.back();">Register </button>
+				</span>
+			</div>
+	
+		</div>   
+      
+   </BODY>
+   
+</HTML>

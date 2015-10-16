@@ -1,0 +1,29 @@
+	<div class="dline color_block" align="center">
+			
+			<span><h1 class="textbig"> Authorization</h1></span>
+		
+		<div class="row dline">
+			<span class="cell"><p align="right" class="textsmall"> Login:</p></span>
+			<span class="cell col"></span>
+			<span class="cell"><input type="text" id="login" placeholder="Login" name="login" autofocus /></span>			
+		</div>
+		
+		<div class="row">
+			<span class="cell"><p align="right" class="textsmall"> Password:</p></span>
+			<span class="cell"></span>
+			<span class="cell"><input type="text" id="password" placeholder="Password" name="password" autofocus /></span>
+		</div>
+		
+		<div class="row">
+			<span class="cell" align="right">
+				<button onClick="window.location.href='registration.html';"> Registration </button>
+			</span>
+			<span class="cell"></span>
+			<span class="cell" align="center" >
+				<button type="submit"  onclick="checkauthorization($('#login').val(), $('#password').val());">Entrance </button>
+				&nbsp;&nbsp;&nbsp;
+				<button type="submit"  onClick="window.history.back();">Back </button>
+			</span>
+		</div>
+					
+	</div>
