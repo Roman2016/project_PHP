@@ -25,8 +25,8 @@
 			
 			case "enterword":
 				$word = $_POST["word"];
-				
-				if ($word != getw ($someword)) { 
+				global $someword;
+				if ($word != $someword) { 
 					unset ($word); // удаление переменной
 					echo "<result>wrong word</result>";
 				} else {
@@ -44,11 +44,7 @@
 		}
 	}
 	
-	function getw ($someword) {
-		return ($someword);
-		}
-	
-	
+		
 	function isletterExist($letter) {
 
 		$db = mysql_connect($GLOBALS["dblocation"], $GLOBALS["dbuser"], $GLOBALS["dbpasswd"] ); 
@@ -70,8 +66,10 @@
 		
 		$db = mysql_connect($GLOBALS["dblocation"], $GLOBALS["dbuser"], $GLOBALS["dbpasswd"] ); 
 		mysql_select_db($GLOBALS["dbname"], $db);
-
-		$query = "INSERT INTO letters (letter) VALUES ('$letter');";
+		
+		$result = mysql_query("SELECT * FROM letters");
+		$i = mysql_num_rows($result)+1;
+		$query = "INSERT INTO letters (id, letter) VALUES ('$i','$letter');";
 				
 		mysql_query($query);
 		mysql_close($db);
@@ -79,10 +77,13 @@
 	}
 	
 	
-	function Getletter ($i) {
+	function Getletter () {
 		
 		$db = mysql_connect($GLOBALS["dblocation"], $GLOBALS["dbuser"], $GLOBALS["dbpasswd"] ); 
 		mysql_select_db($GLOBALS["dbname"], $db);
+		
+		$result1 = mysql_query("SELECT * FROM letters");
+		$i = mysql_num_rows($result1);
 				
 		$query = "SELECT * FROM letters WHERE id = '$i';";
 		$result = mysql_query ($query);
@@ -95,7 +96,7 @@
 		return ($let);
 	}
 	
-	
+		
 	function GetNumber () {
 		$number = mt_rand(1,5);
 		return ($number);
@@ -127,10 +128,8 @@
 	
 	
 	function comparison () {
-		$i = 1;
-		
-		
-		$a = Getletter ($i);
+				
+		$a = Getletter ();
 		$letter2 = Toletter (GetWord (GetNumber ()));
 		foreach($letter2 as $element) {
 			if ($a == $element) {
